@@ -9,14 +9,12 @@ use Symfony\Component\Routing\Attribute\Route;
 
 final class WelcomeController extends AbstractController
 {
-    public function __construct(private InertiaInterface $inertia)
-    {
-    }
+    public function __construct(private InertiaInterface $inertia) {}
 
-    #[Route('/normal', name: 'app_welcome')]
+    #[Route('/ejemplo', name: 'app_welcome')]
     public function index_normal(): Response
     {
-        return $this->render('welcome/index.html.twig', [
+        return $this->render('index.html.twig', [
             'controller_name' => 'WelcomeController',
         ]);
     }
