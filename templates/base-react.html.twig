@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}
+            {{ vite_entry_link_tags('appjsx') }}
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ inertiaHead(page) }}
+            {{ vite_entry_script_tags('appjsx', { dependency: 'react' }) }}
+        {% endblock %}
+    </head>
+    <body>
+        {{ inertia(page) }}
+    </body>
+</html>
