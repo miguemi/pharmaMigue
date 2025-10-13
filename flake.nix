@@ -30,6 +30,13 @@
           script;
 
         scripts = [
+          (mkScript "start-all" ''
+            trap 'kill 0' EXIT
+            pnpm dev &
+            symfony serve &
+            wait
+          '')
+
           (mkScript "php-debug-adapter" ''
             node ${pkgs.vscode-extensions.xdebug.php-debug}/share/vscode/extensions/xdebug.php-debug/out/phpDebug.js
           '')
