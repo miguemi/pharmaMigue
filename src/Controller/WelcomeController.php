@@ -30,10 +30,10 @@ final class WelcomeController extends AbstractController
     #[Route('/', name: 'app_react')]
     public function index(): Response
     {
-        $productos = $this->product->findAll();
+        // $productos = $this->product->findAll();
         // return $this->json($productos);
         return $this->inertia->render('hello', [
-            'productos' => $productos
+            'productos' => "s"
         ]);
     }
 
