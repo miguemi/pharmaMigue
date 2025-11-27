@@ -1,0 +1,26 @@
+security:
+    password_hashers:
+        Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface: 'auto'
+
+    providers:
+        app_user_provider:
+            entity:
+                class: App\Entity\Main\User
+                property: email
+
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        main:
+            lazy: true
+            provider: app_user_provider
+            stateless: true
+
+    access_control:
+        # Las rutas públicas van aquí
+        # - { path: ^/api/login, roles: PUBLIC_ACCESS }
+
+    role_hierarchy:
+        ROLE_ADMIN: ROLE_USER
